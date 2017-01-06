@@ -12,7 +12,7 @@ import datetime
 import iso8601
 
 
-def wire_to_hdfs(fpath,fname,flist,data,Force=False):
+def write_to_hdfs(fpath,fname,flist,data,Force=False):
     '''
     将单个文件写到hdfs上，使用python的hdfs包
     fpath，fname表示文件路径和文件名
@@ -61,7 +61,7 @@ def get_doc(start=0):
             print(fpath+'/'+fname)
             Hclient.makedirs(fpath)
             flist=Hclient.list(fpath)
-            wire_to_hdfs(fpath,fname,flist,json.dumps(doc,ensure_ascii=False))
+            write_to_hdfs(fpath,fname,flist,json.dumps(doc,ensure_ascii=False))
 
         print("=====================================================================================================")
         start+=10
